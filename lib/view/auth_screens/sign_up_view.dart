@@ -240,26 +240,32 @@ class _SignUpViewState extends State<SignUpView> {
                   context: context,
                   onTap: () async {
                     if (_formKey.currentState!.validate()) {
+                      ///for Orignal request///
+                      // Map data = {
+                      //   'email': email.toString(),
+                      //   'password' : password.toString(),
+                      // };
+                      ///for testing on free api server///
                       Map data = {
-                        'email': email,
-                        'password': password,
+                        'email': 'eve.holt@reqres.in',
+                        'password': 'pistol',
                       };
                       signUpViewModel.signUpApi(data, context);
                     }
                   },
-                  passButtonText:signUpViewModel.signuploading
-                        ? customcircularprogress(
-                            context: context,
-                            passcolor: Theme.of(context).primaryColorDark,
-                          )
-                        : Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: Theme.of(context).primaryColorDark,
-                    ),
-                  ),
+                  passButtonText: signUpViewModel.signuploading
+                      ? customcircularprogress(
+                          context: context,
+                          passcolor: Theme.of(context).primaryColorDark,
+                        )
+                      : Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            color: Theme.of(context).primaryColorDark,
+                          ),
+                        ),
                   passButtonColor: Theme.of(context).primaryColorLight,
                   passBorder: Border.all(
                     color: Theme.of(context).primaryColorLight,

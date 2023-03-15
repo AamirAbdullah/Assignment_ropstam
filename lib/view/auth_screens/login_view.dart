@@ -202,8 +202,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             message: 'Password length less than 6 char');
                       } else {
                         Map data = {
-                          'email': email.text.toString(),
-                          'password': password.text.toString(),
+                          'email': 'eve.holt@reqres.in',
+                          'password': 'pistol',
                         };
                         loginViewModel.loginApi(data, context);
                       }

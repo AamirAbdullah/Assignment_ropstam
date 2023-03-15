@@ -5,8 +5,6 @@ import 'package:assignment_ropstam/data/network/base_api_services.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-
-
 class NetworkApiService extends BaseApiService {
   @override
   Future getApiResponse(String url, bool tokentrue, String? token,
@@ -58,6 +56,7 @@ class NetworkApiService extends BaseApiService {
     if (kDebugMode) {
       print('url url url url');
       print(url);
+      print(data.toString());
     }
     try {
       Dio dio = Dio();
@@ -70,7 +69,7 @@ class NetworkApiService extends BaseApiService {
     } on DioError catch (e) {
       if (kDebugMode) {
         print('e.toString()');
-        print(e.toString());
+        print(e.response!.data.toString());
       }
       if (e.isNoConnectionError) {
         throw FetchDataException('No Internet Conection');
@@ -92,20 +91,12 @@ class NetworkApiService extends BaseApiService {
     return responceJson;
   }
 
-
-
   /// delete Api responses
   ///
   @override
   Future deleteApiResponse(String url, String? token) async {
     dynamic responceJson;
     try {
-      if (kDebugMode) {
-        print('In Dio in Delete Api responce');
-        print(url);
-        print(token.toString());
-        print('In Dio in Delete Api responce');
-      }
       Dio dio = Dio();
       dio.options.headers["Authorization"] = "Bearer $token";
       Response responce =
