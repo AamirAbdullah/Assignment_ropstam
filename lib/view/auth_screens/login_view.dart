@@ -195,11 +195,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (email.text.isValidEmail() == false) {
                         Utils.snackBar(context,
                             passDuration: const Duration(milliseconds: 500),
-                            message: 'Please enter a valid email address');
+                            message: 'Please enter a valid email address',
+                            margin: EdgeInsets.fromLTRB(10, 0, 10,
+                                MediaQuery.of(context).size.height * 0.86));
                       } else if (password.text.length < 6) {
                         Utils.snackBar(context,
                             passDuration: const Duration(milliseconds: 500),
-                            message: 'Password length less than 6 char');
+                            message: 'Password length less than 6 char',
+                            margin: EdgeInsets.fromLTRB(10, 0, 10,
+                                MediaQuery.of(context).size.height * 0.86));
                       } else {
                         Map data = {
                           'email': 'eve.holt@reqres.in',
