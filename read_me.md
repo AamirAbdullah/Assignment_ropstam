@@ -14,6 +14,8 @@ In signup page I add validation and feilds.
 In home page a local list of cars is shown which data we add through floating action button in a local list in provider state managment.
 we can add data through click on floating action button where validation on empty feild is applied.
 After add data we see on home page where we can go for edit on edit icon and also delete data on click of delete icon.
+In home screen a car component is called in listview.builder so we pass data to that so its show according to data length.
+In provider one a list of objects(list<String>)is created to save data in state and other bool variable is for change of state when one item form list is deleted.
 
 important!
 These list are save in state so if we kill app state it does not show data.
